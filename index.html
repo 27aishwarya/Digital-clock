@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Libre+Baskerville&family=Nanum+Gothic:wght@700&family=Orbitron:wght@400;900&family=Quicksand:wght@500&family=Roboto+Flex:opsz@8..144&family=Tulpen+One&display=swap');    
+*{
+        padding : 0;
+        margin : 0;
+        font-family: 'Tulpen One', cursive;
+
+        box-sizing : border-box;
+    }
+    body{
+      width  : 100vw;
+      height  : 100vh;
+      display : flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+
+    }
+    .clock{
+color :red;
+padding : 10px;
+font-size  : 70px;
+border-radius : 10px;
+    
+        box-shadow:0px 0px 30px white;
+        
+    }
+ 
+
+</style>
+</head>
+
+<body>
+    <div id="clock" class="clock">
+        <h1>Digital Watch</h1>
+    </div>
+
+<script>
+    // Function to update the clock display
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        
+
+        const timeString = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+        document.getElementById("clock").textContent = timeString;
+    }
+
+    // Function to format time values (add leading zero if needed)
+    function formatTime(value) {
+        return value < 10 ? `0${value}` : value;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+
+    updateClock();
+    
+</script>
+
+</body>
+
+</html>
